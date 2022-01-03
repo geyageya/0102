@@ -4,7 +4,8 @@ import styles from '../styles/Home.module.css'
 // import { Footer } from '../components/Footer'
 
 //nextJs対応
-//audioを if (process.browser) { }で囲む
+//1)audioを if (process.browser) { }で囲む
+//2) img→Image
     
 
 import {useState, useEffect,useRef, useCallback, memo} from "react";
@@ -227,11 +228,6 @@ const MiniCard =memo((props) => {
     alt="miniCard"
     style={miniCard}  
     />
-    // <img 
-    //   alt="miniCard" 
-    //   style={miniCard}  
-    //   src={props.src} 
-    // />
   )
 });
 
@@ -371,7 +367,6 @@ const Card =memo((props) =>{
   return(
     <>
     <Image
-      // <img 
         style = {card}
         alt ="" 
         src={props.src}  
@@ -397,7 +392,7 @@ const Hand =memo((props) =>{
       {/* マジックコード */}
       {props.src === "" ? 
       null : 
-      <img 
+      <Image
         style={hand} 
         alt =""
         src={props.src}  
@@ -471,7 +466,6 @@ const Popup = memo((props) => {
    
     {/* 本番用 */}
     <Img
-    {/* <img  */}
       alt="efuda" 
       style={popupImg} 
       src={props.basicLists[props.currentTurn].answer} 
@@ -486,9 +480,11 @@ const Popup = memo((props) => {
       {/* 日本語 */}
       {props.basicLists[props.currentTurn].kuni} 
     </p> 
-    <img 
+    <Image
       alt ="flag" 
       src={props.basicLists[props.currentTurn].flag} 
+      width={10}
+      height={10}
     />  
     
     {props.currentTurn<props.basicLists.length-3 &&
@@ -561,8 +557,7 @@ const Result = memo((props)=>{
               >
               勝ちました！
             </p>
-            <Img
-            // <img 
+            <Image
               alt ="prize" 
               style={resultImg} 
               src="../images/gold.png" />
