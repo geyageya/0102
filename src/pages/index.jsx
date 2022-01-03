@@ -1,14 +1,15 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-// import { Footer } from '../components/Footer'
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 //nextJs対応
 //1)audioを if (process.browser) { }で囲む
 //2) img→Image
     
 
-import {useState, useEffect,useRef, useCallback, memo} from "react";
+import {useState, useEffect,useRef, useCallback, memo} from "react"
 
 
 const RadioBtn =(props) => {
@@ -31,47 +32,10 @@ const RadioBtn =(props) => {
 }
 
 
+<Header />
 
 
-const Header=memo(()=>{
-  console.log("Child1 Headerレンダリング");
 
-  const header ={
-    maxWidth: "900px",
-    height:"auto",
-    margin: "0px auto 0",
-    background: "#fff",
-    borderRadius: "4px",
-    padding: "0px",
-    textAlign: "center",
-    fontSize: "14px",
-    fontFamily: "Verdana, sans-serif",
-    position: "relative",
-}
-  return(
-    <div>
-      <header style={header}>
-        <Title>
-          かるたで学ぼう、世界200ヶ国!
-        </Title>
-      </header>
-    </div> 
-  )
-});
-
-const Title=memo((props)=>{
-  console.log("Child 2 Titleレンダリング");
-  const title= {
-    color: "#979797",
-  }
-  return(
-    <h1 
-      style={title}
-    >
-      {props.children}
-    </h1>
-  )
-});
 
 const Button =memo((props) =>{
   console.log("Child1 Buttonレンダリング");
@@ -629,7 +593,7 @@ const effectSounds = [
   
   //  APIデータを取得
     const getApiLists = useCallback(async () => {
-      const res =await fetch("https://server-karuta2020.herokuapp.com/api/v1/karuta");
+      const res =await fetch("https://server-karuta2020.herokuapp.com/api/v1/nextjs");
       const json = await res.json();
       setBasicLists(json);
     },[]);
@@ -1385,15 +1349,7 @@ let backgroundImage="";
 
 }//Main
 
-const Footer = () => {
-  const footer ={
-    textAlign: "center"
-  }
-  return(
-
-    <p style={footer}>©<a href="https://ondoku3.com/">ondoku3.com</a>(声:<a href="https://ondoku3.com/">音読さん)</a></p>
-  )
-}
+<Footer/>
 
 
 
