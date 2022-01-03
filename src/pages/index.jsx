@@ -222,11 +222,16 @@ const MiniCard =memo((props) => {
     maxHeight: "40px",
   }
   return(
-    <img 
-      alt="miniCard" 
-      style={miniCard}  
-      src={props.src} 
+    <Image
+    src={props.src} 
+    alt="miniCard"
+    style={miniCard}  
     />
+    // <img 
+    //   alt="miniCard" 
+    //   style={miniCard}  
+    //   src={props.src} 
+    // />
   )
 });
 
@@ -365,7 +370,8 @@ const Card =memo((props) =>{
   }
   return(
     <>
-      <img 
+    <Image
+      // <img 
         style = {card}
         alt ="" 
         src={props.src}  
@@ -464,7 +470,8 @@ const Popup = memo((props) => {
       </p>
    
     {/* 本番用 */}
-    <img 
+    <Img
+    {/* <img  */}
       alt="efuda" 
       style={popupImg} 
       src={props.basicLists[props.currentTurn].answer} 
@@ -554,7 +561,8 @@ const Result = memo((props)=>{
               >
               勝ちました！
             </p>
-            <img 
+            <Img
+            // <img 
               alt ="prize" 
               style={resultImg} 
               src="../images/gold.png" />
