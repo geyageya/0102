@@ -465,7 +465,7 @@ const Popup = memo((props) => {
       </p>
    
     {/* 本番用 */}
-    <Img
+    <Image
       alt="efuda" 
       style={popupImg} 
       src={props.basicLists[props.currentTurn].answer} 
